@@ -3,8 +3,8 @@
  * Author: 				01sr
  * Email:				chenbing8914@outlook.com
  * Date:   				2017-05-21 14:23:39
- * Last modified by:    01sr
- * Last Modified time:  2017-05-21 14:41:52
+ * Last modified by:    01Sr
+ * Last Modified time:  2017-05-31 17:40:48
  */
 header("Content_type:text/html;character=utf-8");
 include_once 'config/conn.php';
@@ -30,7 +30,7 @@ if($info=='ok'){
 	}
 }
 
-$result=array('status'=>$status,'$info'=>$info);
+$result=array('status'=>$status,'info'=>$info);
 echo json_encode($result);
 mysql_close();
 ?>

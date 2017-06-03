@@ -3,8 +3,8 @@
  * Author: 				01sr
  * Email:				chenbing8914@outlook.com
  * Date:   				2017-05-20 10:45:22
- * Last modified by:    01sr
- * Last Modified time:  2017-05-20 14:27:39
+ * Last modified by:    01Sr
+ * Last Modified time:  2017-06-03 21:18:10
  */
 header("Content_type:text/html;character=utf-8");
 include_once 'conn.php';
@@ -35,7 +35,7 @@ class Sharedp
 	}
 
 	public static function generateOrderId($time,$type,$user_id){
-		$t=date('Ymd',$time);
+		$t=date('YmdHis',$time);
 		$uid=sprintf('%04s',$user_id);
 		return $t.$type.$uid;
 	}

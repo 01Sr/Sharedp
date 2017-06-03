@@ -3,8 +3,8 @@
  * Author: 				01sr
  * Email:				chenbing8914@outlook.com
  * Date:   				2017-05-19 12:24:03
- * Last modified by:    01sr
- * Last Modified time:  2017-05-20 15:43:05
+ * Last modified by:    01Sr
+ * Last Modified time:  2017-06-03 21:37:17
  */
 
 /*
@@ -66,10 +66,12 @@ if($info=='ok'){
 				$available=array_diff($all, $used);
 				$num=count($available);
 				if($num>0){
-					$carport_id=$available[0];
+					//array_diff后数组下标不一定从0开始连续，所以arr[0]索引第一个元素是错误的，需要使用current()
+					$carport_id=current($available);
 					$order_id=Sharedp::generateOrderId($unix_now,$order_type_pre,$user_id);
 					$end_time=date('Y-m-d H:i:s',$unix_now+$preorder_duration*60*60);
 					$sql="insert into preorders values('$order_id',$user_id,$parking_id,$carport_id,'$now','$end_time')";
+					// echo $sql;
 					$result=mysql_query($sql);
 					if($result){
 						$status='success';
